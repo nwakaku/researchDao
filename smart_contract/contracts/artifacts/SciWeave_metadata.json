@@ -1,0 +1,435 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "investor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "ResearchPaperFunded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reviewer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "score",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "feedback",
+						"type": "string"
+					}
+				],
+				"name": "ResearchPaperPeerReviewed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					}
+				],
+				"name": "ResearchPaperPublished",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					}
+				],
+				"name": "ResearchPaperPurchased",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "uploader",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "ipfsHash",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "ResearchPaperUploaded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "scientist",
+						"type": "address"
+					}
+				],
+				"name": "ScientistRegistered",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "daoMembers",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "isRegistered",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					}
+				],
+				"name": "fundResearchPaper",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					}
+				],
+				"name": "getPeerReviewInfo",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "isPeerReviewed",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "feedback",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					}
+				],
+				"name": "getResearchPaperIPFSHash",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					}
+				],
+				"name": "getResearchPaperOwnership",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "paperOwners",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "paperId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "score",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "_feedback",
+						"type": "string"
+					}
+				],
+				"name": "peerReviewResearchPaper",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "registerScientist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "researchPapers",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "uploader",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "ipfsHash",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isLocked",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalFunding",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isPeerReviewed",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "feedback",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "peerReviewCount",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_ipfsHash",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "uploadResearchPaper",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SciWeave.sol": "SciWeave"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"contracts/DAOMembership.sol": {
+			"keccak256": "0x6a5f4f511be8f7b1fef634c8de712dd80c3815805026f58a201eaa99b6ade051",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fcb9687785deaf6ec9f93be360f4b78706de407a75eefe84230f1515b0dc89fd",
+				"dweb:/ipfs/QmTm1GcAmmB2ftaeiU5Ejm6RJiu7vEXNgYCVwzsQtCLWXw"
+			]
+		},
+		"contracts/ResearchPaperFunding.sol": {
+			"keccak256": "0x83078fd09a06d1e546efd8b352f948436ca56eed34a3f1961067b1f94b37cfd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fbd8cfc93c60bfbbb69cc105667da132c7f2dfbf3155619ee0cfec073718caff",
+				"dweb:/ipfs/QmNaz2ULUkeT8FgLQLsp3Ytud29RYqEXZWbhT7x8JyZr9A"
+			]
+		},
+		"contracts/ResearchPaperManagement.sol": {
+			"keccak256": "0x3bda7f9d910a1609422ba10f1640a655ea15c15ce0871b537d9bcba6ec4efeba",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8291d686294be67b5d6b3c0084e429b4f9f906fe550df5493416d7b71bba4427",
+				"dweb:/ipfs/QmXHv4Knk67EYhYciH1XQ3VVp1MHi9Mtg2PhsvzurRJWYf"
+			]
+		},
+		"contracts/SciWeave.sol": {
+			"keccak256": "0xb44c069af8a029c444b5560bc2734534924d7d9cb3a47fa9dd25f1b8d67e71be",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7ad059cfeb812cd6f3ef6519e71c89404a58963cb8ec1f9703c1a60b84ffb99d",
+				"dweb:/ipfs/QmSsi9EEQt71XkqeHQ5ZQEKpq3WejksUAcdXUADrMuBVRz"
+			]
+		}
+	},
+	"version": 1
+}

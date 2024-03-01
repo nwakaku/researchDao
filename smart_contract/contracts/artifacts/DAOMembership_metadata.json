@@ -1,0 +1,74 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "scientist",
+						"type": "address"
+					}
+				],
+				"name": "ScientistRegistered",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "registerScientist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/DAOMembership.sol": "DAOMembership"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"contracts/DAOMembership.sol": {
+			"keccak256": "0xf57f36df3e10ea81ba5f39617bfc9f9f769e10970661deaee9ca21aee2f20619",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d77792d5dbecca0dfd4fbe6b9bf4da292d1a75cadfb9f86f33d289e5b477a94",
+				"dweb:/ipfs/QmaHwrHDh1mBK9zn4WLcyuN6FaxvxyF8V4szryjgghsqLN"
+			]
+		}
+	},
+	"version": 1
+}
