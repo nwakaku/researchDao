@@ -376,7 +376,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/SciWeave.sol": "SciWeave"
+			"contracts/ResearchDao.sol": "ResearchDao"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -422,7 +422,7 @@
 				"dweb:/ipfs/QmXHv4Knk67EYhYciH1XQ3VVp1MHi9Mtg2PhsvzurRJWYf"
 			]
 		},
-		"contracts/SciWeave.sol": {
+		"contracts/ResearchDao.sol": {
 			"keccak256": "0xb44c069af8a029c444b5560bc2734534924d7d9cb3a47fa9dd25f1b8d67e71be",
 			"license": "MIT",
 			"urls": [

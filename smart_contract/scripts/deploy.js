@@ -7,12 +7,11 @@
 const hre = require("hardhat");
 
 async function main() {
+  const researchDao = await hre.ethers.deployContract("ResearchDao");
 
-  const sciWeave = await hre.ethers.deployContract("SciWeave");
+  await researchDao.waitForDeployment();
 
-  await sciWeave.waitForDeployment();
-
-  console.log(`sciWeave deployed to ${sciWeave.target}`);
+  console.log(`researchDao deployed to ${researchDao.target}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

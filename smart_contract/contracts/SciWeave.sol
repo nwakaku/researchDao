@@ -3,8 +3,8 @@ pragma solidity ^0.8.0;
 import "contracts/DAOMembership.sol";
 import "contracts/ResearchPaperManagement.sol";
 
-// Main SciWeave Contract
-contract SciWeave is DAOMembership, ResearchPaperManagement {
+// Main ResearchDao Contract
+contract ResearchDao is DAOMembership, ResearchPaperManagement {
     // This contract is left empty as it only serves as a composition of the DAOMembership and ResearchPaperManagement contracts.
     // All the functionality is inherited from those contracts.
     function getAllResearchPapersByAddress()
@@ -36,5 +36,4 @@ contract SciWeave is DAOMembership, ResearchPaperManagement {
 
         return paperIds;
     }
-
 }

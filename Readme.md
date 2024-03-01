@@ -1,14 +1,16 @@
-# SciWeave: Decentralized Science on Binance Smart Chain (BSC)
+# ResearchDao: Decentralized Science on Binance Smart Chain (BSC)
+
+## SMART_CONTRACT_ADDRESS : 0xb8502Ee266DcC20390D8C15AB24E9bBd966e0568
 
 ## Overview
 
-SciWeave is a decentralized scientific application built on the Binance Smart Chain (BSC) that aims to revolutionize the scientific research process. It addresses various challenges in traditional scientific research, such as limited data access, opaque funding processes, lack of transparency, limited collaboration incentives, and a deficit in public engagement.
+ResearchDao is a decentralized scientific application built on the Binance Smart Chain (BSC) that aims to revolutionize the scientific research process. It addresses various challenges in traditional scientific research, such as limited data access, opaque funding processes, lack of transparency, limited collaboration incentives, and a deficit in public engagement.
 
 ## Key Features
 
 ### 1. **Decentralized Research Papers**
 
-SciWeave leverages blockchain technology to create a decentralized repository for research papers. Each research paper is represented as a unique non-fungible token (NFT) on the BSC, ensuring immutability, transparency, and traceability of scientific contributions.
+ResearchDao leverages blockchain technology to create a decentralized repository for research papers. Each research paper is represented as a unique non-fungible token (NFT) on the BSC, ensuring immutability, transparency, and traceability of scientific contributions.
 
 #### Example Code:
 
@@ -40,7 +42,7 @@ function fundResearchPaper(uint256 paperId) external payable {
 
 ### 3. **Collaborative Peer Review**
 
-SciWeave encourages collaboration through a peer review system. Contributors can review research papers and provide feedback. When a paper receives a sufficient number of positive reviews, it becomes unlocked and available for public access.
+ResearchDao encourages collaboration through a peer review system. Contributors can review research papers and provide feedback. When a paper receives a sufficient number of positive reviews, it becomes unlocked and available for public access.
 
 #### Example Code:
 
@@ -78,9 +80,9 @@ function acceptContribution(uint256 paperId, uint256 contributionIndex) external
 
 4. **Contributions:** Researchers can request contributions using the `requestToContribute` function, and the uploader can accept contributions with the `acceptContribution` function.
 
-## Why SciWeave?
+## Why ResearchDao?
 
-- **Transparency:** The decentralized nature of SciWeave ensures transparency in funding, peer review, and collaboration processes.
+- **Transparency:** The decentralized nature of ResearchDao ensures transparency in funding, peer review, and collaboration processes.
   
 - **Incentives:** Contributors and reviewers are rewarded for their contributions, fostering a collaborative and incentive-driven research ecosystem.
 
@@ -90,7 +92,7 @@ function acceptContribution(uint256 paperId, uint256 contributionIndex) external
 
 ## Getting Started
 
-To interact with SciWeave:
+To interact with ResearchDao:
 
 1. Deploy the smart contracts on the BSC.
 2. Use the provided functions to upload papers, fund research, and engage in peer review and contributions.
@@ -105,6 +107,6 @@ To interact with SciWeave:
 
 ## Conclusion
 
-SciWeave on the Binance Smart Chain introduces a new era of decentralized science, addressing critical challenges in the traditional research process. It provides a transparent, collaborative, and incentive-driven environment, fostering innovation and efficiency in scientific endeavors. Join us in revolutionizing scientific research through SciWeave!
+ResearchDao on the Binance Smart Chain introduces a new era of decentralized science, addressing critical challenges in the traditional research process. It provides a transparent, collaborative, and incentive-driven environment, fostering innovation and efficiency in scientific endeavors. Join us in revolutionizing scientific research through ResearchDao!
 
-For more information and updates, visit [SciWeave Website](https://www.sciweave.org).
+For more information and updates, visit [ResearchDao Website](https://www.sciweave.org).
