@@ -72,7 +72,7 @@ function acceptContribution(uint256 paperId, uint256 contributionIndex) external
 
 ## How It Works
 
-1. **Paper Upload:** Researchers upload their papers as NFTs on the BSC using the `SciMedal` contract.
+1. **Paper Upload:** Researchers upload their papers as NFTs on the BSC using the `ResearchDao` contract.
 
 2. **Funding:** Contributors can fund specific research papers using the `fundResearchPaper` function in the `ResearchPaperFunding` contract.
 
@@ -109,4 +109,4 @@ To interact with ResearchDao:
 
 ResearchDao on the Binance Smart Chain introduces a new era of decentralized science, addressing critical challenges in the traditional research process. It provides a transparent, collaborative, and incentive-driven environment, fostering innovation and efficiency in scientific endeavors. Join us in revolutionizing scientific research through ResearchDao!
 
-For more information and updates, visit [ResearchDao Website](https://www.sciweave.org).
+For more information and updates, visit [ResearchDao Website](https://www.ResearchDao.org).
