@@ -3,7 +3,6 @@ import { Text, Button } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { readContract } from "@wagmi/core";
-import { useContract } from "../ContractContext";
 import { FundDialog } from '../dialogs/FundDialog';
 import { useToast } from '@chakra-ui/react'
 
@@ -44,30 +43,17 @@ const research = [
 
 export const Publication = () => {
   const toast = useToast()
-  const { contractAbi, contractAddress, contract } = useContract();
   const [tutor, setTutor] = useState<any>();
 
 
   useEffect(() => {
     // Reading from Contracts
     const fetchResults = async () => {
-      try {
-        const results = await readContract({
-          address: contractAddress,
-          abi: contractAbi,
-          functionName: "getRegisteredMentors",
-          args: [],
-        });
-        console.log(results);
-        setTutor(results);
-      } catch (error) {
-        console.error("Error fetching tutor data:", error);
-        // Handle the error, e.g., show an error message to the user
-      }
+    
     };
 
     fetchResults();
-  }, [contractAddress, contractAbi]);
+  }, []);
 
   const [gridItemCount, setGridItemCount] = useState(research.length);
   const [selectedTutor, setSelectedTutor] = useState(null);

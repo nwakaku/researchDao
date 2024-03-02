@@ -17,7 +17,6 @@ import {
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { writeContract } from "@wagmi/core";
-import { useContract } from "../ContractContext";
 import { useNavigate } from "react-router-dom";
 
 interface FormValues {
@@ -72,27 +71,12 @@ export function CreatePublicationDialog() {
 }
 
 const CreatePublicationDialogContent = () => {
-  const { contractAbi, contractAddress } = useContract();
+
   const navigate = useNavigate();
   const toast = useToast();
 
   const handleSubmit = async (values: FormValues) => {
-    try {
-      // Smart contract write
-      const { hash } = await writeContract({
-        address: contractAddress,
-        abi: contractAbi,
-        functionName: "registerStudent",
-        args: [values.title, parseInt(values.level)],
-      });
-
-      console.log("Smart contract hash:", hash);
-
-      navigate("/matchtutors"); // Replace "/dashboard" with your actual dashboard route
-    } catch (error) {
-      console.error("Form submission error:", error);
-      // Handle the error, e.g., show an error message to the user
-    }
+   
   };
 
   return (

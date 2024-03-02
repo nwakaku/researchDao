@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Text, Button } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import { readContract } from "@wagmi/core";
-import { useContract } from "../ContractContext";
 import { FundDialog } from '../dialogs/FundDialog';
 import { useToast } from '@chakra-ui/react'
 import { CreatePublicationDialog } from '../dialogs/CreatePublicationDialog';
@@ -37,30 +36,18 @@ const tutors = [
 
 export const MyPublication = () => {
   const toast = useToast()
-  const { contractAbi, contractAddress, contract } = useContract();
+
   const [tutor, setTutor] = useState<any>();
 
 
   useEffect(() => {
     // Reading from Contracts
     const fetchResults = async () => {
-      try {
-        const results = await readContract({
-          address: contractAddress,
-          abi: contractAbi,
-          functionName: "getRegisteredMentors",
-          args: [],
-        });
-        console.log(results);
-        setTutor(results);
-      } catch (error) {
-        console.error("Error fetching tutor data:", error);
-        // Handle the error, e.g., show an error message to the user
-      }
+   
     };
 
     fetchResults();
-  }, [contractAddress, contractAbi]);
+  }, []);
 
   const [gridItemCount, setGridItemCount] = useState(tutors.length);
   const [selectedTutor, setSelectedTutor] = useState(null);
@@ -128,7 +115,7 @@ export const MyPublication = () => {
                 isClosable: true,
               })
             }
-              className="rounded-md  bg-newbackground hover:bg-black px-4 text-white text-sm font-body-2-body-2 font-thin "
+              className="rounded-md  bg-newbackground hover:bg-bl px-4 text-white text-sm font-body-2-body-2 font-thin "
             >
              Vote Research
             </Button>

@@ -7,36 +7,38 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import "./global.css";
-import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/react";
-import { arbitrum, avalanche, avalancheFuji, mainnet } from "viem/chains";
-import { ContractProvider } from "./ContractContext";
-import WagmiProvider from "./wagmiProvider";
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+  getDefaultConfig,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { WagmiProvider } from 'wagmi';
+import {
+  mainnet,
+  polygon,
+  optimism,
+  arbitrum,
+  base,
+  zora,
+} from 'wagmi/chains';
+import {
+  QueryClientProvider,
+  QueryClient,
+} from "@tanstack/react-query";
 
-import("buffer").then(({ Buffer }) => {
-  window.Buffer = Buffer;
-});
+// import("buffer").then(({ Buffer }) => {
+//   window.Buffer = Buffer;
+// });
 
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = "2c5136315963c8541beaca2234fedf25";
 
-// 2. Create wagmiConfig
-const metadata = {
-  name: "ResearchDAO",
-  description: "ResearchDAO built with love by Team3",
-  url: "https://web3modal.com",
-  icons: ["https://avatars.githubusercontent.com/u/37784886"],
-};
-
-const chains = [mainnet, arbitrum];
-const wagmiConfig = defaultWagmiConfig({
-  chains,
-  projectId,
-  metadata,
+const config = getDefaultConfig({
+  appName: 'ResearchDAO',
+  projectId: projectId,
+  chains: [mainnet, polygon, optimism, arbitrum, base, zora],
+  ssr: true, // If your dApp uses server side rendering (SSR)
 });
-
-// 3. Create modal
-createWeb3Modal({ wagmiConfig, projectId, chains });
-
 const chakraTheme = extendTheme({
   styles: { global: { img: { maxWidth: "unset" } } },
 });
@@ -45,20 +47,25 @@ const emotionCache = createCache({
   prepend: true,
 });
 
+const queryClient = new QueryClient();
 const container = document.getElementById("root");
 const root = createRoot(container!);
 
 root.render(
   <BrowserRouter>
-    <ContractProvider>
+  
       <CacheProvider value={emotionCache}>
         <ChakraProvider theme={chakraTheme}>
-          <WagmiProvider>
-            <App />
-          </WagmiProvider>
+        <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
+          <App/>
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
         </ChakraProvider>
       </CacheProvider>
-    </ContractProvider>
+   
   </BrowserRouter>
 );
 
