@@ -28,7 +28,7 @@ export const ContractProvider: React.FC<ContractProviderProps> = ({
   children,
 }) => {
   const contractAbi = contractStuff;
-  const contractAddress = "0xf685Ead4cdEB1dfdB6001FF723bFc1Bb254A5402";
+  const contractAddress = "0xb8502Ee266DcC20390D8C15AB24E9bBd966e0568";
   const walletClient = getWalletClient();
 
   // Create the contract instance

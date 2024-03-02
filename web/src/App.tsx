@@ -6,9 +6,10 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import MatchTutorsOptimized from "./pages/MatchTutorsOptimized";
-import DashboadtutorOptimized from "./pages/DashboadtutorOptimized";
 import HomePage from "./pages/home";
+import Publications from "./pages/publications";
+import Profile from "./pages/profile";
+import Reviews from "./pages/under-review";
 
 
 function App() {
@@ -31,26 +32,19 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/match-tutorsoptimized":
+      case "/profile":
         title = "";
         metaDescription = "";
         break;
-      case "/header-container":
+      case "/publication":
         title = "";
         metaDescription = "";
         break;
-      case "/tutorfilled":
+      case "/review":
         title = "";
         metaDescription = "";
         break;
-      case "/studentfilled":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/dashboadtutoroptimized":
-        title = "";
-        metaDescription = "";
-        break;
+     
     }
 
     if (title) {
@@ -70,8 +64,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/matchtutors" element={<MatchTutorsOptimized />} />
-      <Route path="/dashboard" element={<DashboadtutorOptimized />} />
+      <Route path="/publication" element={<Publications />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/review" element={<Reviews />} />
      
     </Routes>
   );

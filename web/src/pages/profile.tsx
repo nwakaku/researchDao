@@ -4,7 +4,7 @@ import { ProfileCard } from "../components/ProfileCard";
 import { UserInfoCard } from "../components/UserInfoCard";
 import { MyPublication } from "../components/MyPublications";
 
-const DashboadtutorOptimized: FunctionComponent = () => {
+const Profile: FunctionComponent = () => {
   return (
     <div className="h-screen bg-white font-body-2-body-2">
       <Header />
@@ -19,4 +19,4 @@ const DashboadtutorOptimized: FunctionComponent = () => {
   );
 };
 
-export default DashboadtutorOptimized;
+export default Profile;

@@ -8,29 +8,32 @@ import {
   Text,
   InputGroup,
   InputLeftElement,
+  useToast,
+  Textarea,
+  FormLabel,
 } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 
 interface FormValues {
-  amount: number;
+  review: string;
 }
 
 const validationSchema = Yup.object({
-  amount: Yup.number().required("Amount is required"),
+  review: Yup.string().required("Review is required"),
 });
 
-export function TipTutorDialog() {
+export function ReviewDialog() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
       <Button
         onClick={onOpen}
-        className="rounded-md  bg-newbackground px-4 text-white text-sm font-body-2-body-2 font-thin "
+        className="rounded-md  bg-newbackground hover:bg-black px-4 text-white text-sm font-body-2-body-2 font-thin "
       >
-        Fund Research
+        Review Research
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -44,7 +47,7 @@ export function TipTutorDialog() {
           </Button>
 
           <ModalBody className="mx-auto">
-            <TipTutorDialogContent />
+            <ReviewDialogContent />
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -52,12 +55,14 @@ export function TipTutorDialog() {
   );
 }
 
-const TipTutorDialogContent = () => {
+const ReviewDialogContent = () => {
+  const toast = useToast();
   const handleSubmit = async (values: FormValues) => {};
+
   return (
     <Formik
       initialValues={{
-        amount: 0,
+        review: "",
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
@@ -65,39 +70,40 @@ const TipTutorDialogContent = () => {
       {(formikProps) => (
         <Form className="mb-4">
           <div className="font-body-2-body-2 mb-4">
-            <p className="text-3xl font-bold text-black text-center my-4 ">
-              Contribute to Research
+            <p className="text-3xl font-bold text-black text-center ">
+              Peer Review
             </p>
-            <div className="space-y-2 mt-4">
-              <Text className=" text-gray1-200 ">Amount</Text>
-              <InputGroup>
-                <InputLeftElement
-                  pointerEvents="none"
-                  className="text-gray1-200"
-                >
-                  $
-                </InputLeftElement>
-                <Input
-                  name="amount"
-                  className="hover:border-black text-gray1-200"
-                  variant="outline"
-                  placeholder="Contribute to research"
-                  focusBorderColor="black"
-                  borderColor="grey"
-                  w={{ base: "150px", md: "250px", lg: "350px" }}
-                  onChange={formikProps.handleChange}
-                  onBlur={formikProps.handleBlur}
-                  value={formikProps.values.amount}
-                />
-              </InputGroup>
+            <div className=" mt-4">
+              <FormLabel className="">Review </FormLabel>
+              <Textarea
+                name="review"
+                placeholder="What improvements can we make on this"
+                focusBorderColor="gray"
+                borderColor="gray"
+                className="hover:border-gray-500 rounded-md mb-3"
+                size="sm"
+                onChange={formikProps.handleChange}
+                onBlur={formikProps.handleBlur}
+                value={formikProps.values.review}
+              />
             </div>
           </div>
           <Button
+            onClick={() =>
+              toast({
+                title: "Review sent.",
+                description:
+                  "You've successfully sent a review for this research.",
+                status: "success",
+                duration: 4000,
+                isClosable: true,
+              })
+            }
             isLoading={formikProps.isSubmitting}
             w={{ base: "150px", md: "250px", lg: "350px" }}
             className="mt-1 rounded-smi bg-gray-900 px-36 py-6 text-white h-10 text-lg font-body-2-body-2 font-thin hover:bg-black mx-auto "
           >
-            Contribute
+            Submit
           </Button>
         </Form>
       )}

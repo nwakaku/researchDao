@@ -4,10 +4,10 @@ import { StarIcon } from '@chakra-ui/icons';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { readContract } from "@wagmi/core";
 import { useContract } from "../ContractContext";
-import { TipTutorDialog } from '../dialogs/TipDialog';
+import { FundDialog } from '../dialogs/FundDialog';
 import { useToast } from '@chakra-ui/react'
 
-const tutors = [
+const research = [
   {
     id: '1',
     imageUrl: '/matchtutor.svg',
@@ -42,7 +42,7 @@ const tutors = [
   }
 ]
 
-export const TutorList = () => {
+export const Publication = () => {
   const toast = useToast()
   const { contractAbi, contractAddress, contract } = useContract();
   const [tutor, setTutor] = useState<any>();
@@ -69,7 +69,7 @@ export const TutorList = () => {
     fetchResults();
   }, [contractAddress, contractAbi]);
 
-  const [gridItemCount, setGridItemCount] = useState(tutors.length);
+  const [gridItemCount, setGridItemCount] = useState(research.length);
   const [selectedTutor, setSelectedTutor] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -110,7 +110,7 @@ export const TutorList = () => {
         </div>
 
       <div className='grid grid-cols-3 justify-evenly gap-8'>
-        {tutors.map(tutor => (
+        {research.map(tutor => (
           <div key={tutor.id} className="flex flex-col space-y-3  bg-white py-4 px-4 border-2 border-gray-200 rounded-md mt-2 w-80">
             <img src={tutor.imageUrl} className="h-60 w-60 mx-auto" alt="Tutor" />
             <div className="space-y-1">
@@ -128,7 +128,7 @@ export const TutorList = () => {
               </Text>
 
               <hr className='text-gray-900'/>
-              <div className='flex space-x-12 justify-center items-center'>
+              <div className='flex space-x-12 justify-center items-center text-black'>
              
             <p className='font-semibold'>
               Raised: 300 BNB
@@ -138,7 +138,7 @@ export const TutorList = () => {
             </p>
               </div>
               <div className='flex space-x-4 justify-center'>
-             <TipTutorDialog/>
+             <FundDialog/>
               <Button
              onClick={() =>
               toast({
@@ -149,7 +149,7 @@ export const TutorList = () => {
                 isClosable: true,
               })
             }
-              className="rounded-md  bg-newbackground px-4 text-white text-sm font-body-2-body-2 font-thin "
+              className="rounded-md  bg-newbackground hover:bg-black px-4 text-white text-sm font-body-2-body-2 font-thin "
             >
              Vote Research
             </Button>

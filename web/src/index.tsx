@@ -21,8 +21,8 @@ const projectId = "2c5136315963c8541beaca2234fedf25";
 
 // 2. Create wagmiConfig
 const metadata = {
-  name: "Lingualink",
-  description: "Lingualink built with love by Team3",
+  name: "ResearchDAO",
+  description: "ResearchDAO built with love by Team3",
   url: "https://web3modal.com",
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };

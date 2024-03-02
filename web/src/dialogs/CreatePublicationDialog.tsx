@@ -5,6 +5,7 @@ import {
   ModalBody,
   useDisclosure,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import {
   FormControl,
@@ -73,6 +74,7 @@ export function CreatePublicationDialog() {
 const CreatePublicationDialogContent = () => {
   const { contractAbi, contractAddress } = useContract();
   const navigate = useNavigate();
+  const toast = useToast();
 
   const handleSubmit = async (values: FormValues) => {
     try {
@@ -158,6 +160,15 @@ const CreatePublicationDialogContent = () => {
                   />
                 </FormControl>
                 <Button
+                 onClick={() =>
+                  toast({
+                    title: 'Research created.',
+                    description: "You've successfully created a new research.",
+                    status: 'success',
+                    duration: 4000,
+                    isClosable: true,
+                  })
+                }
                   isLoading={formikProps.isSubmitting}
                   className="mt-1 rounded-smi bg-gray-900 px-36 py-6 text-white h-10 text-lg font-body-2-body-2 font-thin hover:bg-black mx-auto w-full my-4"
                 >

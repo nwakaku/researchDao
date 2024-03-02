@@ -1,24 +1,9 @@
 import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Button,
-  Divider,
-  Switch,
   Link,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import { ConnectionButton } from "./ui/ConnectButton";
 import { useDisconnect, useAccount } from "wagmi";
-import { Link as ReactRouterLink } from "react-router-dom";
-import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-interface ProfileMenuProps {
-  disconnect: () => void;
-  address?: any;
-}
 
 export const Header = () => {
   const { address, isConnected } = useAccount();
@@ -37,12 +22,26 @@ export const Header = () => {
 
       <div className="h-[37px] w-[335px] flex flex-row items-center justify-end gap-[16px] max-w-full text-sm text-green-2 mq750:w-[250px]">
         {isConnected && (
+        <>
           <Link
-            href="/dashboard"
+            href="/publication"
+            className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 "
+          >
+            Publications
+          </Link>
+          <Link
+            href="/review"
+            className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 "
+          >
+            Review
+          </Link>
+          <Link
+            href="/profile"
             className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 "
           >
             Profile
           </Link>
+        </>
         )}
         <ConnectButton />
       </div>

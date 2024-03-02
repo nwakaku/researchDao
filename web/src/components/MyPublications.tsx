@@ -3,7 +3,7 @@ import { Text, Button } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import { readContract } from "@wagmi/core";
 import { useContract } from "../ContractContext";
-import { TipTutorDialog } from '../dialogs/TipDialog';
+import { FundDialog } from '../dialogs/FundDialog';
 import { useToast } from '@chakra-ui/react'
 import { CreatePublicationDialog } from '../dialogs/CreatePublicationDialog';
 
@@ -117,7 +117,7 @@ export const MyPublication = () => {
             </p>
               </div>
               <div className='flex space-x-4 justify-center'>
-             <TipTutorDialog/>
+             <FundDialog/>
               <Button
              onClick={() =>
               toast({
@@ -128,7 +128,7 @@ export const MyPublication = () => {
                 isClosable: true,
               })
             }
-              className="rounded-md  bg-newbackground px-4 text-white text-sm font-body-2-body-2 font-thin "
+              className="rounded-md  bg-newbackground hover:bg-black px-4 text-white text-sm font-body-2-body-2 font-thin "
             >
              Vote Research
             </Button>
