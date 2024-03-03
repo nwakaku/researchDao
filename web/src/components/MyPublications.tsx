@@ -94,7 +94,7 @@ export const MyPublication = () => {
               </Text>
 
               <hr className='text-gray-900'/>
-              <div className='flex space-x-12 justify-center items-center'>
+              <div className='flex space-x-12 justify-center items-center text-md mt-8 text-black1 '>
              
             <p className='font-semibold'>
               Raised: 300 BNB
@@ -103,7 +103,7 @@ export const MyPublication = () => {
               Total Votes: 15
             </p>
               </div>
-              <div className='flex space-x-4 justify-center'>
+              {/* <div className='flex space-x-4 justify-center'>
              <FundDialog/>
               <Button
              onClick={() =>
@@ -120,7 +120,7 @@ export const MyPublication = () => {
              Vote Research
             </Button>
             
-              </div>
+              </div> */}
             </div>
           </div>
         ))}

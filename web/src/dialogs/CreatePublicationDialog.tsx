@@ -107,7 +107,7 @@ const CreatePublicationDialogContent = () => {
                     onBlur={formikProps.handleBlur}
                     value={formikProps.values.title}
                   ></Input>
-                  <FormLabel className="mt-6">Upload</FormLabel>
+                  <FormLabel className="mt-6">Upload Research</FormLabel>
                   <Field name="upload">
                     {({
                       field,
@@ -130,10 +130,10 @@ const CreatePublicationDialogContent = () => {
                     )}
                   </Field>
 
-                  <Text className="mt-6 mb-3">Description </Text>
+                  <FormLabel className="mt-6">Research Abstract</FormLabel>
                   <Textarea
                     name="description"
-                    placeholder="Give a brief description"
+                    placeholder="Give a summary of this research"
                     focusBorderColor="gray"
                     borderColor="gray"
                     className="hover:border-gray-500 rounded-md mb-3"
