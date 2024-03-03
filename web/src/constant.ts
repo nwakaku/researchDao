@@ -1,0 +1,1 @@
+export const Contract_Address_Bnb = "0xb8502Ee266DcC20390D8C15AB24E9bBd966e0568";

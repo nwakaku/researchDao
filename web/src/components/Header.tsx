@@ -22,28 +22,25 @@ export const Header = () => {
 
       <div className="h-[37px] w-[335px] flex flex-row items-center justify-end gap-[16px] max-w-full text-sm text-green-2 mq750:w-[250px]">
         {isConnected && (
-        <>
-          <Link
-            href="/publication"
-            className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 "
-          >
-            Publications
-          </Link>
-          <Link
-            href="/review"
-            className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 "
-          >
-            Review
-          </Link>
-          <Link
-            href="/profile"
-            className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 "
-          >
-            Profile
-          </Link>
-        </>
+          <>
+            <Link
+              href="/publication"
+              className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 ">
+              Publications
+            </Link>
+            <Link
+              href="/review"
+              className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 ">
+              Review
+            </Link>
+            <Link
+              href="/profile"
+              className=" text-white text-lg font-body-2-body-2 font-semibold mr-4 ">
+              Profile
+            </Link>
+          </>
         )}
-        <ConnectButton />
+        <ConnectButton chainStatus="none" accountStatus="address" />
       </div>
     </header>
   );

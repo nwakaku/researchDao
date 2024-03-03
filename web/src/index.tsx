@@ -7,24 +7,11 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import "./global.css";
-import '@rainbow-me/rainbowkit/styles.css';
-import {
-  getDefaultConfig,
-  RainbowKitProvider,
-} from '@rainbow-me/rainbowkit';
-import { WagmiProvider } from 'wagmi';
-import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
-  zora,
-} from 'wagmi/chains';
-import {
-  QueryClientProvider,
-  QueryClient,
-} from "@tanstack/react-query";
+import "@rainbow-me/rainbowkit/styles.css";
+import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { WagmiProvider } from "wagmi";
+import { mainnet, polygon, bscTestnet, bsc } from "wagmi/chains";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 // import("buffer").then(({ Buffer }) => {
 //   window.Buffer = Buffer;
@@ -34,9 +21,9 @@ import {
 const projectId = "2c5136315963c8541beaca2234fedf25";
 
 const config = getDefaultConfig({
-  appName: 'ResearchDAO',
+  appName: "ResearchDAO",
   projectId: projectId,
-  chains: [mainnet, polygon, optimism, arbitrum, base, zora],
+  chains: [mainnet, polygon, bscTestnet, bsc],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 const chakraTheme = extendTheme({
@@ -53,19 +40,17 @@ const root = createRoot(container!);
 
 root.render(
   <BrowserRouter>
-  
-      <CacheProvider value={emotionCache}>
-        <ChakraProvider theme={chakraTheme}>
+    <CacheProvider value={emotionCache}>
+      <ChakraProvider theme={chakraTheme}>
         <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
-          <App/>
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
-        </ChakraProvider>
-      </CacheProvider>
-   
+          <QueryClientProvider client={queryClient}>
+            <RainbowKitProvider>
+              <App />
+            </RainbowKitProvider>
+          </QueryClientProvider>
+        </WagmiProvider>
+      </ChakraProvider>
+    </CacheProvider>
   </BrowserRouter>
 );
 

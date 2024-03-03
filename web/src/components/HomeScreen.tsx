@@ -1,7 +1,21 @@
 import { Button, Link } from "@chakra-ui/react";
+import { useWriteContract } from "wagmi";
+import { abi } from "../abi";
+import { Contract_Address_Bnb } from '../constant'
 
 
 const BecomeATutorFrame = () => {
+  const { data: hash, isPending, writeContract } = useWriteContract(); 
+
+   const joinUs = () => {
+     // Assuming writeContract does not need any arguments
+     writeContract({
+       address: Contract_Address_Bnb,
+       abi: abi,
+       functionName: "registerScientist",
+     });
+   }
+
   return (
     <>
       {/* Main home session */}
@@ -12,21 +26,24 @@ const BecomeATutorFrame = () => {
 
           <div className="max-w-xl flex flex-col ">
             <p className="text-31xl font-extrabold text-white leading-tight">
-              Publish Research . Find Collaborators . Get Funding . {" "}
+              Publish Research . Find Collaborators . Get Funding .{" "}
             </p>
             <p className="text-31xl font-extrabold text-white leading-tight">
               All on one platform
             </p>
             <p className="text-white my-4 max-w-xl text-3xl mb-6">
-              Publish original scientific contents, get quality feedback from peers, collaborate with other researchers and get funded with BNB tokens 
+              Publish original scientific contents, get quality feedback from
+              peers, collaborate with other researchers and get funded with BNB
+              tokens
             </p>
             <Link href="/publication">
-            <Button
-              w={{ base: "150px", md: "150px", lg: "200px" }}
-              className="rounded-lg bg-newred px-12 py-2 text-white h-12 text-lg font-body-2-body-2 font-thin hover:bg-red "
-            >
-             Get started
-            </Button>
+              <Button
+                disabled={isPending}
+                onClick={joinUs}
+                w={{ base: "150px", md: "150px", lg: "200px" }}
+                className="rounded-lg bg-newred px-12 py-2 text-white h-12 text-lg font-body-2-body-2 font-thin hover:bg-red ">
+                Get started
+              </Button>
             </Link>
           </div>
           <div>
@@ -40,11 +57,19 @@ const BecomeATutorFrame = () => {
             Trusted by top researchers like{" "}
           </p>
           <div className=" flex justify-evenly py-2 mt-3">
-            <p className="text-9xl font-extrabold text-newash ">Dr. Carl June</p>
-            <p className="text-9xl font-extrabold text-newash ">Dr. Yoshinori Ohsumi</p>
-           
-            <p className="text-9xl font-extrabold text-newash ">Dr. Svante Pääbo</p>
-            <p className="text-9xl font-extrabold text-newash ">Dr. Jane Goodall</p>
+            <p className="text-9xl font-extrabold text-newash ">
+              Dr. Carl June
+            </p>
+            <p className="text-9xl font-extrabold text-newash ">
+              Dr. Yoshinori Ohsumi
+            </p>
+
+            <p className="text-9xl font-extrabold text-newash ">
+              Dr. Svante Pääbo
+            </p>
+            <p className="text-9xl font-extrabold text-newash ">
+              Dr. Jane Goodall
+            </p>
           </div>
         </div>
       </div>

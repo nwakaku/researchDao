@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { Header } from "../components/Header";
 import BecomeATutorFrame from "../components/HomeScreen";
 
+
 const HomePage: FunctionComponent = () => {
   return (
     <div className="w-full relative bg-newbackground overflow-hidden flex flex-col items-center justify-start pt-0 px-0 pb-2 box-border tracking-[normal] text-left text-xs text-chrome-light-disabled font-roboto">
